@@ -53,8 +53,6 @@ public class EncryptService extends BaseEnc {
 		encryptPojo.setIv(iv);
 		encryptPojo.setChiperText(chiperText);
 
-		// Stampare o utilizzare i valori di KEY_ID e IV come necessario
-		System.out.println("CIPHER_TEXT: " + chiperText);
 
 		return encryptPojo;
 	}

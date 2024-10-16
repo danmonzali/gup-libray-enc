@@ -53,8 +53,6 @@ public class DecryptService extends BaseEnc {
 		// Ottenere i parametri di output
 		String clearText = (String) query.getOutputParameterValue(CLEAR_TEXT);
 
-		// Stampare o utilizzare i valori di KEY_ID e IV come necessario
-		System.out.println("CLEAR_TEXT: " + clearText);
 
 		return clearText;
 	}
