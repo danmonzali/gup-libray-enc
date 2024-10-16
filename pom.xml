@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gup-common</groupId>
 	<artifactId>gup-enc</artifactId>
-	<version>0.0.1.alfa</version>
+	<version>1.0.0.alfa</version>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
