@@ -14,8 +14,10 @@ import it.tim.enc.pojo.EncryptPojo;
 @Service
 public class EncryptService extends BaseEnc {
 	private static final String CRYPTO_UTILS_CRYPT = "CRYPTO_UTILS.CRYPT";
+
 	@PersistenceContext
 	private EntityManager entityManager;
+
 	@Value("${master.key.bdata}")
 	private String masterKeyBdata;
 
@@ -52,7 +54,6 @@ public class EncryptService extends BaseEnc {
 		encryptPojo.setKeyId(keyId);
 		encryptPojo.setIv(iv);
 		encryptPojo.setChiperText(chiperText);
-
 
 		return encryptPojo;
 	}
