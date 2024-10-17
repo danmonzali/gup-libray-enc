@@ -58,4 +58,18 @@ public class EncryptPojo {
 		this.chiperText = chiperText;
 	}
 
+	private String getClearTextOscurato() {
+		if (getClearText() != null && getClearText().length() > 4) {
+			return "**************" + getClearText().substring(getClearText().length() - 4, getClearText().length());
+		}
+		return "********";
+
+	}
+
+	@Override
+	public String toString() {
+		return "EncryptPojo [clearText=" + getClearTextOscurato() + ", keyGroup=" + keyGroup + ", keyId=" + keyId
+				+ ", iv=" + iv + ", chiperText=" + chiperText + "]";
+	}
+
 }

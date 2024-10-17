@@ -21,13 +21,6 @@ public class DecryptPojo {
 		this.chiperText = chiperText;
 	}
 
-//	public String getMasterKey() {
-//		return masterKey;
-//	}
-//
-//	public void setMasterKey(String masterKey) {
-//		this.masterKey = masterKey;
-//	}
 
 	public String getKeyName() {
 		return keyName;
@@ -43,6 +36,11 @@ public class DecryptPojo {
 
 	public void setIv(String iv) {
 		this.iv = iv;
+	}
+
+	@Override
+	public String toString() {
+		return "DecryptPojo [chiperText=" + chiperText + ", keyName=" + keyName + ", iv=" + iv + "]";
 	}
 
 }
