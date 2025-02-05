@@ -70,6 +70,6 @@ delivery:
       start: target/${REPOSITORY_NAME}-${TAG}.jar
   mailing_lists:
     - versions: alfa,beta
-      mailto: lodovico.lappetito@telecomitalia.it
+      mailto: danilo.benda@telecomitalia.it,melissa.onori@telecomitalia.it
     - versions: release
-      mailto: lodovico.lappetito@telecomitalia.it
+      mailto: danilo.benda@telecomitalia.it,melissa.onori@telecomitalia.it
