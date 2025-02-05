@@ -1,10 +1,5 @@
 package it.tim.enc;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.StoredProcedureQuery;
-import javax.transaction.Transactional;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,7 +8,12 @@ import org.springframework.stereotype.Service;
 import it.tim.enc.exception.EncryptDecryptException;
 import it.tim.enc.pojo.BaseEnc;
 import it.tim.enc.pojo.EncryptPojo;
-
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.ParameterMode;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.StoredProcedureQuery;
+import jakarta.transaction.Transactional;
+	
 @Service
 public class EncryptService extends BaseEnc {
 
@@ -39,14 +39,14 @@ public class EncryptService extends BaseEnc {
 			// PROCEDURE CRYPT(CLEAR_TEXT IN VARCHAR2, MASTER_KEY IN VARCHAR2, KEY_GROUP IN
 			// VARCHAR2, KEY_ID OUT VARCHAR2, IV OUT VARCHAR2,CIPHER_TEXT OUT VARCHAR2);
 			// Registrare i parametri di input
-			query.registerStoredProcedureParameter(CLEAR_TEXT, String.class, javax.persistence.ParameterMode.IN);
-			query.registerStoredProcedureParameter(MASTER_KEY, String.class, javax.persistence.ParameterMode.IN);
-			query.registerStoredProcedureParameter(KEY_GROUP, String.class, javax.persistence.ParameterMode.IN);
+			query.registerStoredProcedureParameter(CLEAR_TEXT, String.class, ParameterMode.IN);
+			query.registerStoredProcedureParameter(MASTER_KEY, String.class, ParameterMode.IN);
+			query.registerStoredProcedureParameter(KEY_GROUP, String.class, ParameterMode.IN);
 
 			// Registrare i parametri di output
-			query.registerStoredProcedureParameter(KEY_ID, String.class, javax.persistence.ParameterMode.OUT);
-			query.registerStoredProcedureParameter(IV, String.class, javax.persistence.ParameterMode.OUT);
-			query.registerStoredProcedureParameter(CIPHER_TEXT, String.class, javax.persistence.ParameterMode.OUT);
+			query.registerStoredProcedureParameter(KEY_ID, String.class, ParameterMode.OUT);
+			query.registerStoredProcedureParameter(IV, String.class, ParameterMode.OUT);
+			query.registerStoredProcedureParameter(CIPHER_TEXT, String.class, ParameterMode.OUT);
 
 			// Impostare i parametri di input
 			query.setParameter(CLEAR_TEXT, encryptPojo.getClearText());
@@ -72,5 +72,11 @@ public class EncryptService extends BaseEnc {
 			throw new EncryptDecryptException("Errore in fase di encrypt: " + encryptPojo.toString());
 		}
 	}
+	
+	
+//	public static void main(String[] args) {
+//		String iban = "IT60X0542811101000000123456";
+//		
+//	}
 
 }
